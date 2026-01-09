@@ -21,13 +21,13 @@ package me.machinemaker.treasuremapsplus.villager;
 
 import java.util.Map;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerType;
 import xyz.jpenilla.reflectionremapper.proxy.annotation.ConstructorInvoker;
 import xyz.jpenilla.reflectionremapper.proxy.annotation.FieldGetter;
 import xyz.jpenilla.reflectionremapper.proxy.annotation.Proxies;
 
-@Proxies(className = "net.minecraft.world.entity.npc.VillagerTrades$TypeSpecificTrade")
+@Proxies(className = "net.minecraft.world.entity.npc.villager.VillagerTrades$TypeSpecificTrade")
 public interface TypeSpecificTradeProxy {
 
     @FieldGetter("trades")

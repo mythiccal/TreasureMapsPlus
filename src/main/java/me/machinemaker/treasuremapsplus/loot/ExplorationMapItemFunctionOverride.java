@@ -33,8 +33,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.ByteTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.functions.ExplorationMapFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
@@ -46,7 +46,7 @@ import org.jetbrains.annotations.VisibleForTesting;
 public class ExplorationMapItemFunctionOverride {
 
     @VisibleForTesting
-    static final ResourceKey<LootItemFunctionType<?>> EXPLORATION_FUNCTION_KEY = ResourceKey.create(Registries.LOOT_FUNCTION_TYPE, ResourceLocation.parse("exploration_map"));
+    static final ResourceKey<LootItemFunctionType<?>> EXPLORATION_FUNCTION_KEY = ResourceKey.create(Registries.LOOT_FUNCTION_TYPE, Identifier.parse("exploration_map"));
     private static final LootItemFunction.Builder SET_PDC_FUNCTION;
 
     static {

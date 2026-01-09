@@ -24,7 +24,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import xyz.jpenilla.reflectionremapper.proxy.annotation.FieldGetter;
 import xyz.jpenilla.reflectionremapper.proxy.annotation.Proxies;
 
-@Proxies(className = "net.minecraft.world.entity.npc.VillagerTrades$TreasureMapForEmeralds")
+@Proxies(className = "net.minecraft.world.entity.npc.villager.VillagerTrades$TreasureMapForEmeralds")
 interface TreasureMapForEmeraldsProxy {
 
     @FieldGetter("emeraldCost")

@@ -33,9 +33,9 @@ import net.kyori.adventure.text.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
@@ -67,8 +67,8 @@ public class VillagerTradeOverride {
 
     static {
         final ReflectionRemapper remapper = ReflectionRemapper.noop();
-        TREASURE_MAP_TRADE_LISTING_CLASS = sneaky(() -> Class.forName(remapper.remapClassName("net.minecraft.world.entity.npc.VillagerTrades$TreasureMapForEmeralds")));
-        TYPE_SPECIFIC_TRADE_CLASS = sneaky(() -> Class.forName(remapper.remapClassName("net.minecraft.world.entity.npc.VillagerTrades$TypeSpecificTrade")));
+        TREASURE_MAP_TRADE_LISTING_CLASS = sneaky(() -> Class.forName(remapper.remapClassName("net.minecraft.world.entity.npc.villager.VillagerTrades$TreasureMapForEmeralds")));
+        TYPE_SPECIFIC_TRADE_CLASS = sneaky(() -> Class.forName(remapper.remapClassName("net.minecraft.world.entity.npc.villager.VillagerTrades$TypeSpecificTrade")));
 
 
         final ReflectionProxyFactory factory = ReflectionProxyFactory.create(remapper, VillagerTradeOverride.class.getClassLoader());
@@ -162,8 +162,8 @@ public class VillagerTradeOverride {
         private static final float PRICE_MULTIPLIER = 0.2f;
 
         @Override
-        public @Nullable MerchantOffer getOffer(final Entity entity, final RandomSource random) {
-            if (!entity.level().paperConfig().environment.treasureMaps.enabled) {
+        public @Nullable MerchantOffer getOffer(final net.minecraft.server.level.ServerLevel level, final Entity entity, final RandomSource random) {
+            if (!level.paperConfig().environment.treasureMaps.enabled) {
                 return null;
             }
             return new MerchantOffer(

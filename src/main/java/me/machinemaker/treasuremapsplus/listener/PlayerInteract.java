@@ -24,8 +24,8 @@ import java.util.List;
 import me.machinemaker.treasuremapsplus.TreasureMapsPlus;
 import me.machinemaker.treasuremapsplus.Utils;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.StructureTags;
 import net.minecraft.tags.TagKey;
@@ -81,7 +81,7 @@ public final class PlayerInteract implements Listener {
         final PersistentDataContainer pdc = item.getItemMeta().getPersistentDataContainer();
         final @Nullable String tagKey = pdc.get(TreasureMapsPlus.MAP_STRUCTURE_TAG_KEY, PersistentDataType.STRING);
         if (tagKey != null) {
-            final TagKey<Structure> structureTagKey = TagKey.create(Registries.STRUCTURE, ResourceLocation.parse(tagKey));
+            final TagKey<Structure> structureTagKey = TagKey.create(Registries.STRUCTURE, Identifier.parse(tagKey));
             if (structureTagKey == StructureTags.ON_TREASURE_MAPS) {
                 lootTable = BuiltInLootTables.BURIED_TREASURE;
             } else if (structureTagKey == StructureTags.ON_OCEAN_EXPLORER_MAPS) {

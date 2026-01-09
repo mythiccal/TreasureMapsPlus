@@ -1,5 +1,5 @@
 /**
- * Handles overriding the villager trades in {@link net.minecraft.world.entity.npc.VillagerTrades}.
+ * Handles overriding the villager trades in {@link net.minecraft.world.entity.npc.villager.VillagerTrades}.
  */
 @DefaultQualifier(NonNull.class)
 package me.machinemaker.treasuremapsplus.villager;
